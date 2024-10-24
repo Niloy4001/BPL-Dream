@@ -4,7 +4,7 @@ import bgImg from '../assets//banner-main.png'
 const Banner = () => {
     return (
         <div className="w-full">
-            <div className="w-[90%] mx-auto rounded-3xl bg-gradient-to-b from-dark to-dark-2 mb-10 md:mb-20">
+            <div className=" rounded-3xl bg-gradient-to-b from-dark to-dark-2 mb-10 md:mb-20">
                 <div
                     className="hero h-[400px] md:h-[550px]   rounded-3xl"
                     style={{
