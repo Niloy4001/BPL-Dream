@@ -4,9 +4,9 @@ import bgImg from '../assets//banner-main.png'
 const Banner = () => {
     return (
         <div className="w-full">
-            <div className="w-[90%] mx-auto rounded-3xl">
+            <div className="w-[90%] mx-auto rounded-3xl bg-gradient-to-b from-dark to-dark-2 mb-10 md:mb-20">
                 <div
-                    className="hero h-[400px] md:h-[550px] "
+                    className="hero h-[400px] md:h-[550px]   rounded-3xl"
                     style={{
                         backgroundImage: `url(${bgShadow})`,
                         backgroundRepeat: 'no-repeat',
@@ -22,7 +22,9 @@ const Banner = () => {
                             <p className="mb-4 lg:mb-6 text-white/[0.7] lg:text-2xl font-medium">
                             Beyond Boundaries Beyond Limits
                             </p>
-                            <button className="btn btn-primary text-dark lg:text-base font-bold">Claim Free Credit</button>
+                            <span className='border-2 border-solid border-orange px-[5px] py-[20px] rounded-2xl'>
+                            <button className="btn btn-primary bg-orange border-none text-dark hover:bg-transparent hover:text-white lg:text-base font-bold">Claim Free Credit</button>
+                            </span>
                         </div>
                     </div>
                 </div>

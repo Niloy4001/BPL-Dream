@@ -9,7 +9,9 @@ export default {
     extend: {},
     colors: {
       'dark': '#131313',
-      'white': '#ffffff'
+      'white': '#ffffff',
+      'orange': '#E7FE29',
+      'dark-2': '#141414',
     },
   },
   plugins: [require('daisyui')],
