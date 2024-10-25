@@ -2,6 +2,7 @@
 
 import './App.css'
 import Banner from './components/Banner'
+import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Players from './components/Players'
 
@@ -14,8 +15,8 @@ function App() {
       <Navbar></Navbar>
       <Banner></Banner>
       <Players></Players>
-      
       </div>
+      <Footer></Footer>
       
     </>
   )
