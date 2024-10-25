@@ -1,4 +1,5 @@
 import footerBg from '../assets/logo-footer.png'
+import bgShadow from '../assets/bg-shadow.png'
 
 const Footer = () => {
     return (
@@ -6,11 +7,17 @@ const Footer = () => {
             <div className='w-[80%] mx-auto relative'>
                 {/* Newsletter section */}
                 <div className=' flex justify-center p-4 md:p-6 border border-solid border-white rounded-3xl bg-white/[0.1] absolute -top-80 left-0 right-0'>
-                    <div className='bg-white w-full flex flex-col items-center py-9 md:py-20 rounded-3xl px-4 lg:px-0'>
+                    <div
+                    style={{
+                        backgroundImage:`url(${bgShadow})`,
+                        backgroundRepeat:'no-repeat',
+                        backgroundSize: '100% 100%'
+                    }} 
+                    className='bg-white w-full flex flex-col items-center py-9 md:py-20 rounded-3xl px-4 lg:px-0'>
                         <h1 className='text-xl md:text-[32px] font-bold text-dark mb-2 md:mb-4'>Subscribe to our Newsletter</h1>
                         <p className='text-base md:text-xl font-medium text-dark/[0.7] mb-3 md:mb-6'>Get the latest updates and news right in your inbox!</p>
                         <div className='flex items-center gap-4 lg:flex-row flex-col w-full justify-center'>
-                            <input type="text" className='input border border-solid border-dark/[0.15] w-full md:w-[28%]' placeholder='Enter your email'/>
+                            <input type="text" className='input border border-solid border-dark/[0.2] w-full md:w-[28%]' placeholder='Enter your email'/>
                             <button className='btn w-full md:w-[9%] bg-gradient-to-r from-purple to-amber border-none'>Subscribe</button>
                         </div>
                     </div>
@@ -52,7 +59,7 @@ const Footer = () => {
             <div className="border-t border-solid border-white/[0.15]"></div>
             <footer className="footer footer-center text-base-content p-5 md:p-8">
                 <aside>
-                    <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+                    <p className='text-sm md:text-base font-normal text-white/[0.6]'>Copyright © {new Date().getFullYear()}  Your Company All Rights Reserved.</p>
                 </aside>
             </footer>
         </div>

@@ -1,10 +1,19 @@
-# React + Vite
+## BPL-DREAM 11 
+### ![BPL Logo](https://i.ibb.co.com/qxNQc6K/logo-LQla-mp-P.png) Live-link ( https://bpl-dream-11-40.netlify.app/ )
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Short description :
+ It is a React-based application where you can select and manage cricket players for your team, keeping track of player selection and coin limitations. This app is centered around one of the most exciting T20 cricket leagues (BPL) in Bangladesh, bringing the excitement of team management and strategy to life.
 
-Currently, two official plugins are available:
+ ### Technologies used in this website
+ - React.js
+ - Tailwind.css
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ### Key features of this website
+ - toggle button feature
+ - 'Choose Player' button shows the specific player info on another one column layout
+ - also there is 'Delete' button that delete selected player info from that list
+
+
+
 
 

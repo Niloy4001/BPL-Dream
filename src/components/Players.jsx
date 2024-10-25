@@ -8,13 +8,13 @@ const Players = ({ playerProfile, toggleStatus, selectedPlayer, handleToggle, ha
     
 
     return (
-        <div className="w-full">
-            <div className=" mb-5 md:mb-8">
-                <div className="flex flex-col md:flex-row md:justify-between items-center gap-4">
+        <div className="w-full ">
+            <div className=" mb-5 md:mb-8 sticky top-36 bg-white">
+                <div className="flex flex-col md:flex-row md:justify-between items-center gap-4 ">
                     <div>
                         <h1 className="font-bold text-xl md:text-[28px] text-dark">{toggleStatus ? 'Available Players ' : `Selected Player (${selectedPlayer.length}/6)`} </h1>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 ">
                         <button className={toggleStatus ? 'px-[30px] py-[14px] bg-orange font-semibold rounded-l-xl' : 'px-[30px] py-[14px] rounded-l-xl'} onClick={() => handleToggle(true)}>Available</button>
                         <button className={toggleStatus ? 'px-[30px] py-[14px]  rounded-r-xl' : 'px-[30px] py-[14px] bg-orange font-semibold rounded-r-xl'} onClick={() => handleToggle(false)}>Selected ({selectedPlayer.length})</button>
                     </div>
@@ -23,9 +23,9 @@ const Players = ({ playerProfile, toggleStatus, selectedPlayer, handleToggle, ha
             {
                 toggleStatus ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-52">
                     {
-                        playerProfile.map((item) => <div key={item.id} className="p-4 md:p-6 "><PlayerAvailable playerProfile={item} handleChosenPlayer={handleChosenPlayer} amount={amount}></PlayerAvailable></div>)
+                        playerProfile.map((item) => <div key={item.id} className="p-4 md:p-6 border border-solid border-dark/[0.2] shadow-sm rounded-2xl"><PlayerAvailable playerProfile={item} handleChosenPlayer={handleChosenPlayer} amount={amount}></PlayerAvailable></div>)
                     }
-                </div> : <div className="space-y-4 md:space-y-6 mb-52 ">
+                </div> : <div className="space-y-4 md:space-y-6 mb-56 ">
                     {
                         selectedPlayer.map((item) => <PlayerSelected key={item.id} selectedPlayer={item} handleRemove={handleRemove}></PlayerSelected>)
                     }

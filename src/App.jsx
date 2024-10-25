@@ -11,25 +11,37 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const notify = () => {
-    toast.error("You do not have sufficient balance", {
+    toast.error("Not enough money to buy this player.Claim some Credit", {
       position: "top-center",
       
     });
   };
-  const notifyExistedPlayer = (name) => {
-    toast.error(`${name} is already existed in your team`, {
+  const notifyExistedPlayer = () => {
+    toast.error(`Player already selected`, {
       position: "top-center"
     });
   };
   const notifyChosenPlayer = (name) => {
-    toast.success(`Congratulation! Now ${name} is on your team`, {
+    toast.success(`Congrates!! ${name} is now in your squad`, {
       position: "top-center",
       autoClose:2000,
     });
   };
   const notifyClaim = () => {
-    toast.success(`Congratulation! You got 10000000$`, {
+    toast.success(`Credit Added to your Account`, {
       position: "top-center",
+      autoClose:2000,
+    });
+  };
+  const notifyMaximizeTeam = () => {
+    toast.error(`You cannot choose more than 6 player`, {
+      position: "top-center",
+      autoClose:2000,
+    });
+  };
+  const notifyPlayerRemoved = () => {
+    toast.warn(`Player Removed`, {
+      position: "top-right",
       autoClose:2000,
     });
   };
@@ -62,16 +74,18 @@ function App() {
     const sameItem = selectedPlayer.find((item) => player.id === item.id)
 
     if (sameItem) {
-      // alert('existed')
-      notifyExistedPlayer(player.name)
+      notifyExistedPlayer()
     }
     else if (amountMinusBiddingPrice < 0) {
       notify()
-
+      return
+    }
+    else if (selectedPlayer.length > 5){
+      notifyMaximizeTeam()
       return
     }
     else {
-      // amountMinusBiddingPrice > 0 ? setAmount(amountMinusBiddingPrice) : alert('you have not enough money')
+     
       setAmount(amountMinusBiddingPrice);
       setSelectedPlayer([...selectedPlayer, player])
       notifyChosenPlayer(player.name)
@@ -86,6 +100,7 @@ function App() {
     const remaining = selectedPlayer.filter((item) => id !== item.id)
     setSelectedPlayer(remaining)
     setAmount(amount + biddingPrice)
+    notifyPlayerRemoved();
   }
 
 
@@ -98,10 +113,10 @@ function App() {
 
   return (
     <>
-      <div className='w-[90%] mx-auto'>
         <Navbar
           amount={amount}
         ></Navbar>
+      <div className='w-[90%] mx-auto'>
         <Banner
           handleClaimBtn={handleClaimBtn}
         ></Banner>
