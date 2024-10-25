@@ -14,6 +14,7 @@ function App() {
       <Navbar></Navbar>
       <Banner></Banner>
       <Players></Players>
+      
       </div>
       
     </>
