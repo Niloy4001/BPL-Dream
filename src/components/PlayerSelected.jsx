@@ -15,7 +15,7 @@ const PlayerSelected = ({selectedPlayer,handleRemove}) => {
                 <p className='font-normal text-xs md:text-base text-dark/[0.6]'>{role} </p>
             </div>
             <div className="w-20 h-20 flex justify-center items-center">
-                <button onClick={()=> handleRemove(id)}><img src={deleteIcon} alt="" /></button>
+                <button onClick={()=> handleRemove(id,selectedPlayer.biddingPrice)}><img src={deleteIcon} alt="" /></button>
             </div>
         </div>
     );

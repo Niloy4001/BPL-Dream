@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import bgShadow from '../assets/bg-shadow.png'
 import bgImg from '../assets//banner-main.png'
 
-const Banner = () => {
+const Banner = ({handleClaimBtn}) => {
     return (
         <div className="w-full">
             <div className=" rounded-3xl bg-gradient-to-b from-dark to-dark-2 mb-10 md:mb-20">
@@ -23,7 +24,9 @@ const Banner = () => {
                             Beyond Boundaries Beyond Limits
                             </p>
                             <span className='border-2 border-solid border-orange px-[5px] py-[20px] rounded-2xl'>
-                            <button className="btn btn-primary bg-orange border-none text-dark hover:bg-transparent hover:text-white lg:text-base font-bold">Claim Free Credit</button>
+                            <button
+                            onClick={()=> handleClaimBtn()} 
+                            className="btn btn-primary bg-orange border-none text-dark hover:bg-transparent hover:text-white lg:text-base font-bold">Claim Free Credit</button>
                             </span>
                         </div>
                     </div>

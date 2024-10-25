@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import logo from '../assets/logo.png'
 import { ImMenu3 } from "react-icons/im";
 import coin from '../assets/coin.png'
 
-const Navbar = () => {
+const Navbar = ({amount}) => {
     return (
         <div className="w-full">
             <div className=" py-5 md:py-10">
                 <div className="navbar bg-base-100 flex justify-between items-center">
-                    <div className="">
+                    <div >
                         <img src={logo} alt="Cricketer" className='w-[73] h-[72px]' />
                     </div>
                     <div className=" gap-2">
@@ -39,7 +40,7 @@ const Navbar = () => {
                     </div>
                     <div>
                         <button className='flex justify-center items-center gap-4 px-5 py-4 border border-solid border-[#1313131A]/[0.1] rounded-xl text-dark text-base font-semibold'>
-                            <span>0 Coin</span>
+                            <span>{amount} Coin</span>
                             <span><img src={coin} alt="" /> </span>
                         </button>
                     </div>

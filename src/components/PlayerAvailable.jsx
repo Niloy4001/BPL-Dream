@@ -3,7 +3,7 @@
 import { FaUserLarge } from "react-icons/fa6";
 import { FaFlag } from "react-icons/fa";
 
-const PlayerAvailable = ({ playerProfile , handleChosenPlayer}) => {
+const PlayerAvailable = ({ playerProfile, handleChosenPlayer, amount }) => {
     const { name, country, image, role, battingType, bowlingType, biddingPrice } = playerProfile
     // console.log(playerProfile);
 
@@ -31,9 +31,15 @@ const PlayerAvailable = ({ playerProfile , handleChosenPlayer}) => {
                     <p >{battingType} </p>
                     <p>{bowlingType} </p>
                 </div>
-                <div className="flex justify-between items-center text-dark font-bold text-sm md:text-base">
+                <div className="flex justify-between items-center text-dark font-bold text-sm md:text-base pb-4">
                     <p>Price: ${biddingPrice} </p>
-                    <button className="btn" onClick={()=> handleChosenPlayer(playerProfile)}>Choose Player</button>
+                    <button className="btn" onClick={() => {
+                        handleChosenPlayer(playerProfile, (amount - biddingPrice))
+                        // console.log(biddingPrice);
+                        // console.log(amount);
+
+
+                    }}>Choose Player</button>
                 </div>
 
             </div>

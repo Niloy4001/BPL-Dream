@@ -1,40 +1,11 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+
 import PlayerAvailable from "./PlayerAvailable";
 import PlayerSelected from "./PlayerSelected";
 
 
-const Players = () => {
-    const [playerProfile, setPlayerProfile] = useState([])
-
-    const [toggleStatus, setToggleStatus] = useState(true)
-
-    const [selectedPlayer, setSelectedPlayer] = useState([])
-
-    // console.log(selectedPlayer);
-
-
-    useEffect(() => {
-        fetch('players.json')
-            .then(res => res.json())
-            .then(data => setPlayerProfile(data))
-    }, [])
-
-
-    const handleToggle = (status) => {
-        setToggleStatus(status)
-    }
-
-    const handleChosenPlayer = (player) => {
-        setSelectedPlayer([...selectedPlayer, player])
-
-
-    }
-
-    const handleRemove = (id) => {
-        const remaining = selectedPlayer.filter((item) => id !== item.id)
-        setSelectedPlayer(remaining)
-    }
-    // console.log(selectedPlayer);
+const Players = ({ playerProfile, toggleStatus, selectedPlayer, handleToggle, handleChosenPlayer, handleRemove,amount }) => {
+    
 
     return (
         <div className="w-full">
@@ -50,40 +21,25 @@ const Players = () => {
                 </div>
             </div>
             {
-                toggleStatus? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 md:mb-52 mb-52">
-                {
-                    playerProfile.map((item) => <div key={item.id} className="p-4 md:p-6"><PlayerAvailable playerProfile={item} handleChosenPlayer={handleChosenPlayer}></PlayerAvailable></div>)
-                }
-            </div>: <div className="space-y-4 md:space-y-6">
-                {
-                    selectedPlayer.map((item) => <PlayerSelected key={item.id} selectedPlayer={item} handleRemove={handleRemove}></PlayerSelected>)
-                }
-                <div>
-                    <span className='border-2 border-solid border-orange px-[5px] py-[20px] rounded-2xl'>
-                        <button className="btn btn-primary bg-orange border-none text-dark hover:bg-transparent hover:text-white lg:text-base font-bold" onClick={()=> handleToggle(true)}>Add More Player</button>
-                    </span>
+                toggleStatus ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-52">
+                    {
+                        playerProfile.map((item) => <div key={item.id} className="p-4 md:p-6 "><PlayerAvailable playerProfile={item} handleChosenPlayer={handleChosenPlayer} amount={amount}></PlayerAvailable></div>)
+                    }
+                </div> : <div className="space-y-4 md:space-y-6 mb-52 ">
+                    {
+                        selectedPlayer.map((item) => <PlayerSelected key={item.id} selectedPlayer={item} handleRemove={handleRemove}></PlayerSelected>)
+                    }
+                    <div>
+                        <span className='border-2 border-solid border-orange px-[5px] py-[20px] rounded-2xl'>
+                            <button className="btn btn-primary bg-orange border-none text-dark hover:bg-transparent hover:text-dark lg:text-base font-bold" onClick={() => handleToggle(true)}>Add More Player</button>
+                        </span>
+                    </div>
                 </div>
-            </div>
-                
-                
+
+
             }
 
 
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 md:mb-24 mb-10">
-                {
-                    playerProfile.map((item) => <div key={item.id} className="p-4 md:p-6"><PlayerAvailable playerProfile={item} handleChosenPlayer={handleChosenPlayer}></PlayerAvailable></div>)
-                }
-            </div> */}
-            {/* <div className="space-y-4 md:space-y-6">
-                {
-                    selectedPlayer.map((item) => <PlayerSelected key={item.id} selectedPlayer={item} handleRemove={handleRemove}></PlayerSelected>)
-                }
-                <div>
-                    <span className='border-2 border-solid border-orange px-[5px] py-[20px] rounded-2xl'>
-                        <button className="btn btn-primary bg-orange border-none text-dark hover:bg-transparent hover:text-white lg:text-base font-bold">Add More Player</button>
-                    </span>
-                </div>
-            </div> */}
         </div>
     );
 };
